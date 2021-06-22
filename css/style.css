@@ -31,12 +31,12 @@ iframe {
 
 @keyframes circle {
   from {
-    transform: scale(2);
+    transform: scale(3.3);
     opacity: 1;
   }
 
   to {
-    transform: scale(6);
+    transform: scale(7);
     opacity: 0;
   }
 }
@@ -60,6 +60,16 @@ iframe {
 
   to {
     transform: scale(1.2);
+  }
+}
+
+@keyframes rotate-text {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
   }
 }
 
@@ -189,6 +199,8 @@ iframe {
   align-items: center;
   flex: 1;
 
+  position: relative;
+
   animation: top-down;
   animation-duration: 2.4s;
 }
@@ -214,17 +226,6 @@ iframe {
 	border-bottom: 15px solid transparent;
 }
 
-.right__circle::after {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-
-  border: 1px solid var(--tulip-tree);
-  border-radius: 50%;
-  content: '';
-
-  animation: circle 2s infinite;
-}
 
 .right__circle::before, .right__circle::after {
   content: '';
@@ -232,14 +233,24 @@ iframe {
   width: 80px;
   height: 80px;
 
-  border: 1px solid var(--tulip-tree);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--tulip-tree);
   border-radius: 50%;
 
-  animation: circle 3s infinite;
+  animation: circle 3s linear infinite;
 }
 
 .right__circle::before {
   animation-delay: 1s;
+}
+
+.circle__text {
+  position: absolute;
+
+  width: 256px;
+  height: 253px;
+  animation: rotate-text 60s linear infinite;
 }
 
 .container__second {
